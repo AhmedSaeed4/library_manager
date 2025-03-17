@@ -16,14 +16,23 @@ def save_library(library):
 def add_book(library):
     title = input(f"\nEnter the book title: ")
     author = input("Enter the author: ")
-    year = int(input("Enter the publication year: "))
+
+  
+    while True:
+        year_input = input("Enter the publication year: ")
+        if year_input.isdigit():  
+            year = int(year_input)
+            break
+        else:
+            print("Invalid input. Please enter a valid year (numbers only).")
+
     genre = input("Enter the genre: ")
 
-    
     print("Have you read this book?")
     print("1. Yes")
     print("2. No")
 
+    
     while True:  
         read_choice = input("Enter your choice (1/2): ").strip()
         if read_choice == '1':
@@ -45,6 +54,7 @@ def add_book(library):
     
     library.append(book)
     print("Book added successfully!\n")
+
 
 
 def remove_book(library):
