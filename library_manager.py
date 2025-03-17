@@ -18,7 +18,22 @@ def add_book(library):
     author = input("Enter the author: ")
     year = int(input("Enter the publication year: "))
     genre = input("Enter the genre: ")
-    read_status = input("Have you read this book? (yes/no): ").strip().lower() == 'yes'
+
+    
+    print("Have you read this book?")
+    print("1. Yes")
+    print("2. No")
+
+    while True:  
+        read_choice = input("Enter your choice (1/2): ").strip()
+        if read_choice == '1':
+            read_status = True
+            break
+        elif read_choice == '2':
+            read_status = False
+            break
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
 
     book = {
         'title': title,
@@ -30,6 +45,7 @@ def add_book(library):
     
     library.append(book)
     print("Book added successfully!\n")
+
 
 def remove_book(library):
     title = input(f"\nEnter the title of the book to remove: ")
